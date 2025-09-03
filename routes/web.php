@@ -15,21 +15,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
+})->name('home');
+
+
+use App\Http\Controllers\projectsController;
+Route::get('/projects', [projectsController::class, 'index'])->name('projects');
+Route::get('/detail/{id}', [projectsController::class, 'detail'])->name('detail');
+
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\adminController;
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/admin', [adminController::class, 'index'])->name('projects.index');
+    Route::post('/admin/store', [adminController::class, 'store'])->name('projects.store');
+    Route::put('/admin/update/{id}', [adminController::class, 'update'])->name('projects.update');
+    Route::delete('/admin/delete/{id}', [adminController::class, 'destroy'])->name('projects.destroy');
+
 });
 
 
-Route::get('/projects', function () {
-    return view('projects');
-});
-
-Route::get('/project-hotel', function () {
-    return view('projects/hotel');
-});
-
-Route::get('/simple-android', function () {
-    return view('projects/simple-android');
-});
-
-Route::get('/pjb', function () {
-    return view('projects/pjb');
-});
