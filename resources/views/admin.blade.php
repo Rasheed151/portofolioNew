@@ -36,7 +36,7 @@
                 <input type="text" name="language" placeholder="Bahasa" class="border p-2 rounded w-full" required>
                 <input type="text" name="framework" placeholder="Framework" class="border p-2 rounded w-full" required>
             </div>
-            <textarea name="content" placeholder="Deskripsi Project" class="border p-2 rounded w-full"
+            <textarea name="content" placeholder="Deskripsi Project" class="border p-2 rounded w-full h-56"
                 required></textarea>
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Tambah
                 Project</button>
@@ -70,8 +70,8 @@
                                         class="border p-1 rounded w-full">
                                     <input type="text" name="framework" value="{{ $project->framework }}"
                                         class="border p-1 rounded w-full">
-                                    <textarea name="content"
-                                        class="border p-1 rounded w-full">{{ $project->content }}</textarea>
+                                        <textarea name="content"
+                                        class="border col-span-2 p-1 h-56 rounded w-full">{{ $project->content }}</textarea>
                                 </div>
 
                                 <div x-show="!edit">

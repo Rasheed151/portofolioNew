@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="{{ asset('img/astronaut.png') }}">
+    <link rel="icon" type="image/png"
+        href="https://res.cloudinary.com/dvugdsa0z/image/upload/v1756707378/projectku/esqeuwdgmfpwbizrdrhx.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <title>Portofolio Rasheed</title>
+    <title>{{$data->name}}</title>
 </head>
 
 <body x-data="{ open: false, scaleSosmed: false }" class="bg-gray-200 flex flex-col min-h-screen">
@@ -110,14 +111,15 @@
 
                 {!! $data->content !!}
 
+
             </div>
             <!-- Sidebar -->
             <aside class="bg-white w-full lg:w-1/3 rounded-lg p-4 md:p-6 shadow-lg h-fit">
                 <h2 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">Other Projects</h2>
                 <div class="space-y-6">
                     @foreach ($sidebar as $d)
-                        <a href="{{ route('detail', $d->id) }}" 
-                        class="block bg-gray-100 rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+                        <a href="{{ route('detail', $d->id) }}"
+                            class="block bg-gray-100 rounded-lg shadow hover:shadow-lg transition overflow-hidden">
                             <div class="aspect-[16/9] bg-gray-300 flex items-center justify-center overflow-hidden">
                                 <img src="{{ $d->cover }}" class="object-cover w-full h-full">
                             </div>

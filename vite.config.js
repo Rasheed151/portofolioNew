@@ -8,11 +8,5 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        host: '0.0.0.0', // biar bisa diakses dari device lain
-        port: 5173, // default vite port
-        hmr: {
-            host: '192.168.18.43', // ganti dengan IP PC/laptop lo di jaringan WiFi
-        },
-    },
+
 });

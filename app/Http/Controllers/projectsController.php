@@ -19,7 +19,7 @@ class projectsController extends Controller
         $data = projects::findOrFail($id); // ambil sesuai id, kalau ga ketemu error 404
         $sidebar = projects::where('id', '!=', $id)
             ->inRandomOrder()
-            ->limit(2)
+            ->limit(3)
             ->get();
         return view('project-detail', compact('data', 'sidebar'));
     }
